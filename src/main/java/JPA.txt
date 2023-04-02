@@ -1,0 +1,44 @@
+ProjectLoveGPT là một ứng dụng web sử dụng Spring Boot và JPA để tạo và quản lý các đối tượng người dùng trong
+cơ sở dữ liệu MySQL. Ứng dụng cung cấp một API RESTful cho phép các yêu cầu HTTP
+được gửi đến và xử lý thông qua các phương thức CRUD (Create, Read, Update, Delete)
+cho các đối tượng người dùng.
+
+
+File UserController.java là một Spring MVC RestController định nghĩa các phương thức
+ API để thực hiện các yêu cầu RESTful. Đối với các yêu cầu GET, danh sách tất cả các
+ đối tượng người dùng được truy xuất từ cơ sở dữ liệu thông qua repository và trả về
+  dưới dạng một danh sách JSON. Đối với các yêu cầu POST, một đối tượng người dùng
+  mới được tạo và lưu vào cơ sở dữ liệu thông qua repository. Đối với các yêu cầu
+   PUT, một đối tượng người dùng được cập nhật trong cơ sở dữ liệu thông qua
+   repository. Đối với các yêu cầu DELETE, một đối tượng người dùng được xóa khỏi
+   cơ sở dữ liệu thông qua repository.
+   File User.java định nghĩa các thuộc tính cho một đối tượng người dùng, bao gồm tên,
+    email và id.
+----------TaskController ----->TaskService-------->TaskRepository
+
+Tầng Controller là tầng đầu tiên tương tác với các request từ phía người dùng và gọi các phương thức của
+tầng Service để xử lý request này. Tầng Service là tầng trung gian giữa tầng Controller và tầng Repository,
+nó chứa các phương thức xử lý logic nghiệp vụ và gọi các phương thức của tầng Repository để tương tác với
+Class TaskController sử dụng TaskRepository để thực hiện các thao tác với cơ sở dữ liệu như lấy danh sách
+ tất cả các công việc, lấy một công việc theo id, tạo mới một công việc,
+ cập nhật một công việc và xóa một công việc.
+
+TaskController, TaskRepository được sử dụng thông qua TaskService, một lớp trung gian giúp tách biệt
+ các tầng ứng dụng và giảm sCSDLự phụ thuộc giữa chúng. TaskService chứa các phương thức
+ để xử lý các thao tác liên quan đến Task, trong đó sử dụng TaskRepository để tương tác với cơ sở dữ liệu.
+
+
+
+
+
+File TestjpaApplication.java là file chính để chạy ứng dụng và cấu hình Spring Boot.
+Nó có annotation @SpringBootApplication để chứa tất cả các annotation cần thiết cho
+cấu hình của Spring Boot.
+
+File application.properties cung cấp các thông số cấu hình cho ứng dụng, bao gồm
+đường dẫn URL cho cơ sở dữ liệu, tên người dùng, mật khẩu và cấu hình Hibernate để
+tự động tạo bảng trong cơ sở dữ liệu.
+
+File pom.xml là file cấu hình Maven để quản lý các phụ thuộc và triển khai ứng dụng.
+ Các phụ thuộc bao gồm các module Spring Boot cho Spring MVC, Spring Data JPA và
+ MySQL connector.

@@ -1,0 +1,20 @@
+Trong class TaskService này, chúng ta sử dụng @Autowired để inject TaskRepository vào class và
+có thể sử dụng các phương thức của TaskRepository để thực hiện các thao tác truy vấn cơ sở dữ liệu.
+
+Phương thức getAllTasks() trả về danh sách tất cả các task trong cơ sở dữ liệu bằng cách gọi
+phương thức findAll() của TaskRepository.
+
+Phương thức getTaskById(Long id) trả về một task với id tương ứng bằng cách gọi
+phương thức findById(id) của TaskRepository và trả về giá trị null nếu không tìm thấy task.
+
+Phương thức saveTask(Task task) lưu một task mới hoặc cập nhật một task đã có trong cơ sở dữ liệu
+bằng cách gọi phương thức save(task) của TaskRepository.
+
+Phương thức deleteTaskById(Long id) xóa một task với id tương ứng bằng cách gọi phương thức
+deleteById(id) của TaskRepository.
+
+Phương thức findTaskByName(String name) trả về danh sách các task có tên tương ứng bằng cách
+gọi phương thức findByName(name) của TaskRepository.
+
+Class TaskService này được sử dụng để xử lý các yêu cầu từ tầng controller và gọi các phương thức
+của TaskRepository để truy vấn cơ sở dữ liệu.
